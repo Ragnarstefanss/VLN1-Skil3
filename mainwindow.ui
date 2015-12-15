@@ -24,7 +24,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -97,7 +97,28 @@
          </widget>
         </item>
         <item>
-         <widget class="QTableWidget" name="table_computer"/>
+         <widget class="QTableWidget" name="table_computer">
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year Built</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Built</string>
+           </property>
+          </column>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="button_add_computer">

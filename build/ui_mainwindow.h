@@ -126,6 +126,16 @@ public:
         verticalLayout_3->addWidget(filter_computer);
 
         table_computer = new QTableWidget(Computers);
+        if (table_computer->columnCount() < 4)
+            table_computer->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        table_computer->setHorizontalHeaderItem(0, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        table_computer->setHorizontalHeaderItem(1, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        table_computer->setHorizontalHeaderItem(2, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        table_computer->setHorizontalHeaderItem(3, __qtablewidgetitem7);
         table_computer->setObjectName(QStringLiteral("table_computer"));
 
         verticalLayout_3->addWidget(table_computer);
@@ -200,7 +210,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -222,6 +232,14 @@ public:
         button_remove_people->setText(QApplication::translate("MainWindow", "Remove selected person from the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(People), QApplication::translate("MainWindow", "People", 0));
         filter_computer->setPlaceholderText(QApplication::translate("MainWindow", "Filter computer...", 0));
+        QTableWidgetItem *___qtablewidgetitem4 = table_computer->horizontalHeaderItem(0);
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Name", 0));
+        QTableWidgetItem *___qtablewidgetitem5 = table_computer->horizontalHeaderItem(1);
+        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Type", 0));
+        QTableWidgetItem *___qtablewidgetitem6 = table_computer->horizontalHeaderItem(2);
+        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Year Built", 0));
+        QTableWidgetItem *___qtablewidgetitem7 = table_computer->horizontalHeaderItem(3);
+        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Built", 0));
         button_add_computer->setText(QApplication::translate("MainWindow", "Add a computer to the list", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove selected computer from the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(Computers), QApplication::translate("MainWindow", "Computers", 0));
