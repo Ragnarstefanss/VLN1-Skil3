@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "scientistservice.h"
+#include <vector>
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,6 +19,16 @@ public:
     ~MainWindow();
 
 private:
+    std::string getCurrentOrderBy();
+    bool getOrderByAscending();
+
+    void displayAllScientists();
+    void displayScientists(std::vector<Scientist> scientists);
+
+    ScientistService scientistService;
+
+    std::vector<Scientist> currentlyDisplayedScientist;
+
     Ui::MainWindow *ui;
 };
 
