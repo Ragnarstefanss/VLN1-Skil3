@@ -1,46 +1,88 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QMainWindow>
-
-#include "scientistservice.h"
-#include "computerservice.h"
-#include <string.h>
-#include <vector>
+#include "computer.h"
+#include "utilities/constants.h"
 
 using namespace std;
 
-namespace Ui {
-class MainWindow;
+Computer::Computer()
+{
+
 }
 
-class MainWindow : public QMainWindow
+Computer::Computer(string name, enum computerType type)
 {
-    Q_OBJECT
+    id = 0;
+    this->name = name;
+    this->type = type;
+    this->yearBuilt = constants::YEAR_UNSELECTED_VALUE;
+}
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+Computer::Computer(string name, enum computerType type, int yearBuilt)
+{
+    id = 0;
+    this->name = name;
+    this->type = type;
+    this->yearBuilt = yearBuilt;
+}
 
-private slots:
-    void on_input_filter_people_textChanged(const QString &arg1);
-    void on_input_filter_computer_textChanged(const QString &arg1);
+Computer::Computer(unsigned int id, std::string name, enum computerType type, int yearBuilt)
+{
+    this->id = id;
+    this->name = name;
+    this->type = type;
+    this->yearBuilt = yearBuilt;
+}
 
-private:
-    void displayAllScientists();
-    void displayScientists(std::vector<Scientist> scientists);
-    void displayAllComputers();
-    void displayComputers(std::vector<Computer> computers);
+unsigned int Computer::getId()
+{
+    return id;
+}
 
-    string intSexToString(string sex);
+string Computer::getName()
+{
+    return name;
+}
 
-    ScientistService scientistService;
-    std::vector<Scientist> currentlyDisplayedScientist;
+int Computer::getYearBuilt()
+{
+    return yearBuilt;
+}
 
-    ComputerService computerService;
-    std::vector<Computer> currentlyDisplayedComputer;
+enum computerType Computer::getType()
+{
+    return type;
+}
 
-    Ui::MainWindow *ui;
-};
+string Computer::getTypeName()
+{
+    if (type == computerType::electronic)
+    {
+        return "Electronic";
+    }
+    else if (type == computerType::mechatronic)
+    {
+        return "Mechatronic";
+    }
+    else if (type == computerType::transistor)
+    {
+        return "Transistor";
+    }
+    else
+    {
+        return "Other";
+    }
+}
 
-#endif // MAINWINDOW_H
+bool Computer::wasBuilt()
+{
+    return yearBuilt != constants::YEAR_UNSELECTED_VALUE;
+}
+
+std::vector<Scientist> Computer::getScientists()
+{
+    return scientists;
+}
+
+void Computer::setScientists(std::vector<Scientist> newScientists)
+{
+    scientists = newScientists;
+}

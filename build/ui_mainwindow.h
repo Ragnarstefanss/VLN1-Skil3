@@ -40,14 +40,14 @@ public:
     QVBoxLayout *verticalLayout;
     QLineEdit *input_filter_people;
     QTableWidget *table_people;
-    QPushButton *button_add_people;
     QPushButton *button_remove_people;
+    QPushButton *button_add_people;
     QWidget *Computers;
     QVBoxLayout *verticalLayout_3;
     QLineEdit *input_filter_computer;
     QTableWidget *table_computer;
-    QPushButton *button_add_computer;
     QPushButton *button_remove_computer;
+    QPushButton *button_add_computer;
     QWidget *Connections;
     QVBoxLayout *verticalLayout_4;
     QLabel *label;
@@ -103,15 +103,16 @@ public:
 
         verticalLayout->addWidget(table_people);
 
+        button_remove_people = new QPushButton(People);
+        button_remove_people->setObjectName(QStringLiteral("button_remove_people"));
+        button_remove_people->setEnabled(false);
+
+        verticalLayout->addWidget(button_remove_people);
+
         button_add_people = new QPushButton(People);
         button_add_people->setObjectName(QStringLiteral("button_add_people"));
 
         verticalLayout->addWidget(button_add_people);
-
-        button_remove_people = new QPushButton(People);
-        button_remove_people->setObjectName(QStringLiteral("button_remove_people"));
-
-        verticalLayout->addWidget(button_remove_people);
 
         tabWidget->addTab(People, QString());
         Computers = new QWidget();
@@ -137,18 +138,20 @@ public:
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         table_computer->setHorizontalHeaderItem(3, __qtablewidgetitem7);
         table_computer->setObjectName(QStringLiteral("table_computer"));
+        table_computer->setSortingEnabled(true);
 
         verticalLayout_3->addWidget(table_computer);
+
+        button_remove_computer = new QPushButton(Computers);
+        button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
+        button_remove_computer->setEnabled(false);
+
+        verticalLayout_3->addWidget(button_remove_computer);
 
         button_add_computer = new QPushButton(Computers);
         button_add_computer->setObjectName(QStringLiteral("button_add_computer"));
 
         verticalLayout_3->addWidget(button_add_computer);
-
-        button_remove_computer = new QPushButton(Computers);
-        button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
-
-        verticalLayout_3->addWidget(button_remove_computer);
 
         tabWidget->addTab(Computers, QString());
         Connections = new QWidget();
@@ -210,7 +213,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -228,8 +231,8 @@ public:
         ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Born Year", 0));
         QTableWidgetItem *___qtablewidgetitem3 = table_people->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Died Year", 0));
-        button_add_people->setText(QApplication::translate("MainWindow", "Add a person to the list", 0));
         button_remove_people->setText(QApplication::translate("MainWindow", "Remove selected person from the list", 0));
+        button_add_people->setText(QApplication::translate("MainWindow", "Add a person to the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(People), QApplication::translate("MainWindow", "People", 0));
         input_filter_computer->setPlaceholderText(QApplication::translate("MainWindow", "Filter computer...", 0));
         QTableWidgetItem *___qtablewidgetitem4 = table_computer->horizontalHeaderItem(0);
@@ -240,8 +243,8 @@ public:
         ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Year Built", 0));
         QTableWidgetItem *___qtablewidgetitem7 = table_computer->horizontalHeaderItem(3);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Built", 0));
-        button_add_computer->setText(QApplication::translate("MainWindow", "Add a computer to the list", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove selected computer from the list", 0));
+        button_add_computer->setText(QApplication::translate("MainWindow", "Add a computer to the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(Computers), QApplication::translate("MainWindow", "Computers", 0));
         label->setText(QApplication::translate("MainWindow", "Create a ownership between a person and a a computer", 0));
         dropdown_person->setCurrentText(QString());

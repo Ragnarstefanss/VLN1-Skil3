@@ -40,5 +40,4 @@ INCLUDEPATH += models \
     services \
     ui
 
-FORMS    += \
-    ../../../Downloads/VLN1-Skil3/mainwindow.ui
+FORMS    += mainwindow.ui
