@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dropdown_computer->addItem("computer");
 
     displayAllScientists();
+    displayAllComputers();
 }
 
 MainWindow::~MainWindow()
