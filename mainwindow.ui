@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>446</width>
-    <height>416</height>
+    <width>462</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="layoutDirection">
@@ -24,7 +24,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -88,6 +88,32 @@
        <attribute name="title">
         <string>Computers</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLineEdit" name="filter_computer">
+          <property name="placeholderText">
+           <string>Filter computer...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="table_computer"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="button_add_computer">
+          <property name="text">
+           <string>Add a computer to the list</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="button_remove_computer">
+          <property name="text">
+           <string>Remove selected computer from the list</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="Connections">
        <attribute name="title">
@@ -106,7 +132,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>446</width>
+     <width>462</width>
      <height>21</height>
     </rect>
    </property>

@@ -48,6 +48,39 @@ void MainWindow::displayScientists(std::vector<Scientist> scientists)
     currentlyDisplayedScientist = scientists;
 }
 
+
+void MainWindow::displayAllComputers()
+{
+    vector<Computer> computers = computerService.getAllComputers(getCurrentOrderBy(), getOrderByAscending());
+    displayComputers(computers);
+}
+
+void MainWindow::displayComputers(std::vector<Computer> computers)
+{
+    ui->table_computer->clearContents();
+
+    ui->table_computer->setRowCount(computers.size());
+
+    for (unsigned int row = 0; row < computers.size(); row++)
+    {
+        Computer currentComputer = computers.at(row);
+
+        QString name = QString::fromStdString(currentComputer.getName());
+        QString type = QString::fromStdString(currentComputer.getTypeName());
+        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
+        QString wasBuilt = QString::number(currentComputer.wasBuilt());
+
+        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
+        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
+        ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
+        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
+    }
+
+
+    currentlyDisplayedComputer = computers;
+}
+
+
 string MainWindow::getCurrentOrderBy()
 {
     return "name";

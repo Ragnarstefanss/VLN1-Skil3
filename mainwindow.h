@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "scientistservice.h"
+#include "computerservice.h"
 #include <vector>
 
 namespace Ui {
@@ -25,9 +26,17 @@ private:
     void displayAllScientists();
     void displayScientists(std::vector<Scientist> scientists);
 
+    void displayAllComputers();
+    void displayComputers(std::vector<Computer> computers);
+
     ScientistService scientistService;
 
     std::vector<Scientist> currentlyDisplayedScientist;
+
+    ComputerService computerService;
+
+    std::vector<Computer> currentlyDisplayedComputer;
+
 
     Ui::MainWindow *ui;
 };
