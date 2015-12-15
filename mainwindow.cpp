@@ -24,9 +24,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::displayAllScientists()
 {
-    vector<Scientist> scientists = scientistService.getAllScientists(getCurrentOrderBy(), getOrderByAscending());
+    vector<Scientist> scientists = scientistService.getAllScientists("name", true);
     displayScientists(scientists);
 }
+
 
 void MainWindow::displayScientists(std::vector<Scientist> scientists)
 {
@@ -40,6 +41,9 @@ void MainWindow::displayScientists(std::vector<Scientist> scientists)
 
         QString name = QString::fromStdString(currentScientist.getName());
         QString sex = QString::number(currentScientist.getSex());
+        string sexStr = sex.toStdString();
+        sexStr = intSexToString(sexStr);                                        //Converts bool to string
+        sex = QString::fromStdString(sexStr);
         QString yearBorn = QString::number(currentScientist.getYearBorn());
         QString yearDeath = QString::number(currentScientist.getYearDied());
 
@@ -52,10 +56,30 @@ void MainWindow::displayScientists(std::vector<Scientist> scientists)
     currentlyDisplayedScientist = scientists;
 }
 
+string MainWindow::intSexToString(string sex)
+{
+    string strSex;
+    if (sex == "0")
+    {
+        strSex = "Male";
+        return strSex;
+    }
+    else if (sex == "1")
+    {
+        strSex = "Female";
+        return strSex;
+    }
+    else
+    {
+        //Failure
+    }
+    return 0;
+}
+
 
 void MainWindow::displayAllComputers()
 {
-    vector<Computer> computers = computerService.getAllComputers(getCurrentOrderBy(), getOrderByAscending());
+    vector<Computer> computers = computerService.getAllComputers("name", true);
     displayComputers(computers);
 }
 
@@ -85,12 +109,20 @@ void MainWindow::displayComputers(std::vector<Computer> computers)
 }
 
 
-string MainWindow::getCurrentOrderBy()
+
+
+void MainWindow::on_input_filter_people_textChanged(const QString &arg1)
 {
-    return "name";
+    string userInput = ui->input_filter_people->text().toStdString();
+
+    vector<Scientist> scientists = scientistService.searchForScientists(userInput);
+    displayScientists(scientists);
+}
+void MainWindow::on_input_filter_computer_textChanged(const QString &arg1)
+{
+    string userInput = ui->input_filter_people->text().toStdString();
+
+    vector<Scientist> scientists = scientistService.searchForScientists(userInput);
+    displayScientists(scientists);
 }
 
-bool MainWindow::getOrderByAscending()
-{
-    return true;
-}

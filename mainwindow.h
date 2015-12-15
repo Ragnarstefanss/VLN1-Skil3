@@ -5,7 +5,10 @@
 
 #include "scientistservice.h"
 #include "computerservice.h"
+#include <string.h>
 #include <vector>
+
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -19,24 +22,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private:
-    std::string getCurrentOrderBy();
-    bool getOrderByAscending();
+private slots:
+    void on_input_filter_people_textChanged(const QString &arg1);
+    void on_input_filter_computer_textChanged(const QString &arg1);
 
+private:
     void displayAllScientists();
     void displayScientists(std::vector<Scientist> scientists);
-
     void displayAllComputers();
     void displayComputers(std::vector<Computer> computers);
 
-    ScientistService scientistService;
+    string intSexToString(string sex);
 
+    ScientistService scientistService;
     std::vector<Scientist> currentlyDisplayedScientist;
 
     ComputerService computerService;
-
     std::vector<Computer> currentlyDisplayedComputer;
-
 
     Ui::MainWindow *ui;
 };

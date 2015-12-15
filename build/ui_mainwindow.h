@@ -38,13 +38,13 @@ public:
     QTabWidget *tabWidget;
     QWidget *People;
     QVBoxLayout *verticalLayout;
-    QLineEdit *filter_people;
+    QLineEdit *input_filter_people;
     QTableWidget *table_people;
     QPushButton *button_add_people;
     QPushButton *button_remove_people;
     QWidget *Computers;
     QVBoxLayout *verticalLayout_3;
-    QLineEdit *filter_computer;
+    QLineEdit *input_filter_computer;
     QTableWidget *table_computer;
     QPushButton *button_add_computer;
     QPushButton *button_remove_computer;
@@ -82,10 +82,10 @@ public:
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        filter_people = new QLineEdit(People);
-        filter_people->setObjectName(QStringLiteral("filter_people"));
+        input_filter_people = new QLineEdit(People);
+        input_filter_people->setObjectName(QStringLiteral("input_filter_people"));
 
-        verticalLayout->addWidget(filter_people);
+        verticalLayout->addWidget(input_filter_people);
 
         table_people = new QTableWidget(People);
         if (table_people->columnCount() < 4)
@@ -120,10 +120,10 @@ public:
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        filter_computer = new QLineEdit(Computers);
-        filter_computer->setObjectName(QStringLiteral("filter_computer"));
+        input_filter_computer = new QLineEdit(Computers);
+        input_filter_computer->setObjectName(QStringLiteral("input_filter_computer"));
 
-        verticalLayout_3->addWidget(filter_computer);
+        verticalLayout_3->addWidget(input_filter_computer);
 
         table_computer = new QTableWidget(Computers);
         if (table_computer->columnCount() < 4)
@@ -219,7 +219,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        filter_people->setPlaceholderText(QApplication::translate("MainWindow", "Filter people...", 0));
+        input_filter_people->setPlaceholderText(QApplication::translate("MainWindow", "Filter people...", 0));
         QTableWidgetItem *___qtablewidgetitem = table_people->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem1 = table_people->horizontalHeaderItem(1);
@@ -231,7 +231,7 @@ public:
         button_add_people->setText(QApplication::translate("MainWindow", "Add a person to the list", 0));
         button_remove_people->setText(QApplication::translate("MainWindow", "Remove selected person from the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(People), QApplication::translate("MainWindow", "People", 0));
-        filter_computer->setPlaceholderText(QApplication::translate("MainWindow", "Filter computer...", 0));
+        input_filter_computer->setPlaceholderText(QApplication::translate("MainWindow", "Filter computer...", 0));
         QTableWidgetItem *___qtablewidgetitem4 = table_computer->horizontalHeaderItem(0);
         ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem5 = table_computer->horizontalHeaderItem(1);

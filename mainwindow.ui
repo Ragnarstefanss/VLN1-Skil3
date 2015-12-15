@@ -35,7 +35,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLineEdit" name="filter_people">
+         <widget class="QLineEdit" name="input_filter_people">
           <property name="placeholderText">
            <string>Filter people...</string>
           </property>
@@ -90,7 +90,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QLineEdit" name="filter_computer">
+         <widget class="QLineEdit" name="input_filter_computer">
           <property name="placeholderText">
            <string>Filter computer...</string>
           </property>
