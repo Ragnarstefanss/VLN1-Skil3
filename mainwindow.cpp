@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->dropdown_person->addItem("person");
+    ui->dropdown_computer->addItem("computer");
+
     displayAllScientists();
 }
 

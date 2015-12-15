@@ -13,7 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -46,6 +49,13 @@ public:
     QPushButton *button_add_computer;
     QPushButton *button_remove_computer;
     QWidget *Connections;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *label;
+    QHBoxLayout *horizontalLayout;
+    QComboBox *dropdown_person;
+    QComboBox *dropdown_computer;
+    QPushButton *pushButton;
+    QTableWidget *tableWidget;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -133,6 +143,41 @@ public:
         tabWidget->addTab(Computers, QString());
         Connections = new QWidget();
         Connections->setObjectName(QStringLiteral("Connections"));
+        verticalLayout_4 = new QVBoxLayout(Connections);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        label = new QLabel(Connections);
+        label->setObjectName(QStringLiteral("label"));
+
+        verticalLayout_4->addWidget(label);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        dropdown_person = new QComboBox(Connections);
+        dropdown_person->setObjectName(QStringLiteral("dropdown_person"));
+
+        horizontalLayout->addWidget(dropdown_person);
+
+        dropdown_computer = new QComboBox(Connections);
+        dropdown_computer->setObjectName(QStringLiteral("dropdown_computer"));
+
+        horizontalLayout->addWidget(dropdown_computer);
+
+
+        verticalLayout_4->addLayout(horizontalLayout);
+
+        pushButton = new QPushButton(Connections);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout_4->addWidget(pushButton);
+
+        tableWidget = new QTableWidget(Connections);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+
+        verticalLayout_4->addWidget(tableWidget);
+
         tabWidget->addTab(Connections, QString());
 
         verticalLayout_2->addWidget(tabWidget);
@@ -155,7 +200,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -180,6 +225,10 @@ public:
         button_add_computer->setText(QApplication::translate("MainWindow", "Add a computer to the list", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove selected computer from the list", 0));
         tabWidget->setTabText(tabWidget->indexOf(Computers), QApplication::translate("MainWindow", "Computers", 0));
+        label->setText(QApplication::translate("MainWindow", "Create a ownership between a person and a a computer", 0));
+        dropdown_person->setCurrentText(QString());
+        dropdown_computer->setCurrentText(QString());
+        pushButton->setText(QApplication::translate("MainWindow", "Create Ownership", 0));
         tabWidget->setTabText(tabWidget->indexOf(Connections), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi
 

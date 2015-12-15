@@ -24,7 +24,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -119,6 +119,43 @@
        <attribute name="title">
         <string>Connections</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Create a ownership between a person and a a computer</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QComboBox" name="dropdown_person">
+            <property name="currentText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="dropdown_computer">
+            <property name="currentText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Create Ownership</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
