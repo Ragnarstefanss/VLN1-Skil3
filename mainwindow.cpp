@@ -104,7 +104,6 @@ void MainWindow::displayComputers(std::vector<Computer> computers)
         ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
 
-
     currentlyDisplayedComputer = computers;
 }
 
@@ -118,11 +117,12 @@ void MainWindow::on_input_filter_people_textChanged(const QString &arg1)
     vector<Scientist> scientists = scientistService.searchForScientists(userInput);
     displayScientists(scientists);
 }
+
 void MainWindow::on_input_filter_computer_textChanged(const QString &arg1)
 {
-    string userInput = ui->input_filter_people->text().toStdString();
+    string userInput = ui->input_filter_computer->text().toStdString();
 
-    vector<Scientist> scientists = scientistService.searchForScientists(userInput);
-    displayScientists(scientists);
+    vector<Computer> computers = computerService.searchForComputers(userInput);
+    displayComputers(computers);
 }
 
