@@ -1,12 +1,11 @@
-QT += core
-QT -= gui
+QT += core gui
 QT += sql
+QT += widgets
 
 TARGET = week2
-CONFIG += console
-CONFIG -= app_bundle
-CONFIG += C++11
 
+CONFIG += C++11
+CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
@@ -19,7 +18,8 @@ SOURCES += main.cpp \
     services/computerservice.cpp \
     repositories/computerrepository.cpp \
     repositories/linkrepository.cpp \
-    services/linkservice.cpp
+    services/linkservice.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     models/scientist.h \
@@ -32,9 +32,12 @@ HEADERS += \
     services/computerservice.h \
     repositories/computerrepository.h \
     repositories/linkrepository.h \
-    services/linkservice.h
+    services/linkservice.h \
+    mainwindow.h
 
 INCLUDEPATH += models \
     repositories \
     services \
     ui
+
+FORMS    += mainwindow.ui

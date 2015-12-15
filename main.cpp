@@ -1,9 +1,16 @@
 #include "consoleui.h"
+#include "mainwindow.h"
+#include <QApplication>
 
-int main()
+int main(int argc, char *argv[])
 {
     ConsoleUI ui;
+    QApplication a(argc, argv);
+    MainWindow w;
 
-    return ui.start();
+    w.show();
+
+  //  return ui.start();
+    return a.exec();
 }
 
