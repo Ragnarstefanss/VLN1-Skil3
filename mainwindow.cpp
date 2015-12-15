@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "scientistservice.h"
+#include "addperson.h"
 
 using namespace std;
 
@@ -126,3 +127,10 @@ void MainWindow::on_input_filter_computer_textChanged(const QString &arg1)
     displayComputers(computers);
 }
 
+
+void MainWindow::on_button_add_people_clicked()
+{
+    addPerson addperson;
+    addperson.exec();
+    displayAllScientists();
+}

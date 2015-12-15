@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     repositories/computerrepository.cpp \
     repositories/linkrepository.cpp \
     services/linkservice.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    ui/addperson.cpp
 
 HEADERS += \
     models/scientist.h \
@@ -33,11 +34,13 @@ HEADERS += \
     repositories/computerrepository.h \
     repositories/linkrepository.h \
     services/linkservice.h \
-    mainwindow.h
+    mainwindow.h \
+    ui/addperson.h
 
 INCLUDEPATH += models \
     repositories \
     services \
     ui
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    ui/addperson.ui

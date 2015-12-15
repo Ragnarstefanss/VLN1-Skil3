@@ -26,6 +26,8 @@ private slots:
     void on_input_filter_people_textChanged(const QString &arg1);
     void on_input_filter_computer_textChanged(const QString &arg1);
 
+    void on_button_add_people_clicked();
+
 private:
     void displayAllScientists();
     void displayScientists(std::vector<Scientist> scientists);
