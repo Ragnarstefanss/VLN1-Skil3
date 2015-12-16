@@ -40,6 +40,10 @@ private:
     void displayScientists(std::vector<Scientist> scientists);
     void displayAllComputers();
     void displayComputers(std::vector<Computer> computers);
+    void displayAllComputersDropdown();
+    void displayComputerDropdown(std::vector<Computer> computers);
+    void displayAllScientistDropdown();
+    void displayScientistDropdown(std::vector<Scientist> scientist);
 
     string intSexToString(string sex);
 

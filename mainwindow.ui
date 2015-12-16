@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>423</height>
+    <width>599</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,16 +69,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="button_add_people">
+         <widget class="QPushButton" name="button_remove_people">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>Add a person to the list</string>
+           <string>Remove selected person from the list</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="button_remove_people">
+         <widget class="QPushButton" name="button_add_people">
           <property name="text">
-           <string>Remove selected person from the list</string>
+           <string>Add a person to the list</string>
           </property>
          </widget>
         </item>
@@ -124,16 +127,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="button_add_computer">
+         <widget class="QPushButton" name="button_remove_computer">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>Add a computer to the list</string>
+           <string>Remove selected computer from the list</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="button_remove_computer">
+         <widget class="QPushButton" name="button_add_computer">
           <property name="text">
-           <string>Remove selected computer from the list</string>
+           <string>Add a computer to the list</string>
           </property>
          </widget>
         </item>
@@ -197,7 +203,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>462</width>
+     <width>599</width>
      <height>21</height>
     </rect>
    </property>

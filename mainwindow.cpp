@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->dropdown_person->addItem("person");
-    ui->dropdown_computer->addItem("computer");
+    displayAllScientistDropdown();
+    displayAllComputersDropdown();
 
     displayAllScientists();
     displayAllComputers();
@@ -105,6 +105,43 @@ void MainWindow::displayComputers(std::vector<Computer> computers)
 
     currentlyDisplayedComputer = computers;
 }
+
+void MainWindow::displayAllComputersDropdown()
+{
+    vector<Computer> computers = computerService.getAllComputers("name", true);
+    displayComputerDropdown(computers);
+}
+void MainWindow::displayComputerDropdown(std::vector<Computer> computers)
+{
+    for (unsigned int row = 0; row < computers.size(); row++)
+    {
+        Computer currentComputer = computers.at(row);
+
+        QString name = QString::fromStdString(currentComputer.getName());
+
+        ui->dropdown_computer->addItem(name);
+    }
+}
+
+void MainWindow::displayAllScientistDropdown()
+{
+    vector<Scientist> scientist = scientistService.getAllScientists("name", true);
+    displayScientistDropdown(scientist);
+}
+
+void MainWindow::displayScientistDropdown(std::vector<Scientist> scientist)
+{
+    for (unsigned int row = 0; row < scientist.size(); row++)
+    {
+        Scientist currentScientist = scientist.at(row);
+
+        QString name = QString::fromStdString(currentScientist.getName());
+
+        ui->dropdown_person->addItem(name);
+    }
+}
+
+
 
 void MainWindow::on_input_filter_people_textChanged(const QString &arg1)
 {
