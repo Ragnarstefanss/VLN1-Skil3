@@ -29,7 +29,6 @@ void MainWindow::displayAllScientists()
     displayScientists(scientists);
 }
 
-
 void MainWindow::displayScientists(std::vector<Scientist> scientists)
 {
     ui->table_people->clearContents();
@@ -77,7 +76,6 @@ string MainWindow::intSexToString(string sex)
     return 0;
 }
 
-
 void MainWindow::displayAllComputers()
 {
     vector<Computer> computers = computerService.getAllComputers("name", true);
@@ -108,9 +106,6 @@ void MainWindow::displayComputers(std::vector<Computer> computers)
     currentlyDisplayedComputer = computers;
 }
 
-
-
-
 void MainWindow::on_input_filter_people_textChanged(const QString &arg1)
 {
     string userInput = ui->input_filter_people->text().toStdString();
@@ -127,10 +122,65 @@ void MainWindow::on_input_filter_computer_textChanged(const QString &arg1)
     displayComputers(computers);
 }
 
-
 void MainWindow::on_button_add_people_clicked()
 {
     addPerson addperson;
     addperson.exec();
     displayAllScientists();
 }
+
+void MainWindow::on_button_remove_people_clicked()
+{
+    int currentlySelectedScientistIndex = ui->table_people->currentIndex().row();
+
+    Scientist currentlySelectedScientist = currentlyDisplayedScientist.at(currentlySelectedScientistIndex);
+
+    bool success = scientistService.removeScientist(currentlySelectedScientist);
+
+    if (success)
+    {
+        ui->input_filter_people->setText("");
+        displayAllScientists();
+
+        ui->button_remove_people->setEnabled(false);
+    }
+    else
+    {
+
+        // display some error
+    }
+}
+
+void MainWindow::on_button_remove_computer_clicked()
+{
+    int currentlySelectedComputerIndex = ui->table_computer->currentIndex().row();
+
+    Computer currentlySelectedComputer = currentlyDisplayedComputer.at(currentlySelectedComputerIndex);
+
+    bool success = computerService.removeComputer(currentlySelectedComputer);
+
+    if (success)
+    {
+        ui->input_filter_computer->setText("");
+        displayAllComputers();
+
+        ui->button_remove_computer->setEnabled(false);
+    }
+    else
+    {
+
+        // display some error
+    }
+}
+
+
+void MainWindow::on_table_people_clicked(const QModelIndex &index)
+{
+    ui->button_remove_people->setEnabled(true);
+}
+
+void MainWindow::on_table_computer_clicked(const QModelIndex &index)
+{
+    ui->button_remove_computer->setEnabled(true);
+}
+

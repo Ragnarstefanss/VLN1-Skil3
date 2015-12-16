@@ -25,8 +25,15 @@ public:
 private slots:
     void on_input_filter_people_textChanged(const QString &arg1);
     void on_input_filter_computer_textChanged(const QString &arg1);
-
     void on_button_add_people_clicked();
+
+    void on_button_remove_people_clicked();
+
+    void on_table_people_clicked(const QModelIndex &index);
+
+    void on_table_computer_clicked(const QModelIndex &index);
+
+    void on_button_remove_computer_clicked();
 
 private:
     void displayAllScientists();
