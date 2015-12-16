@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "scientistservice.h"
 #include "addperson.h"
+#include "addcomputer.h"
 
 using namespace std;
 
@@ -166,6 +167,13 @@ void MainWindow::on_button_add_people_clicked()
     displayAllScientists();
 }
 
+void MainWindow::on_button_add_computer_clicked()
+{
+    addComputer addcomputer;
+    addcomputer.exec();
+    displayAllComputers();
+}
+
 void MainWindow::on_button_remove_people_clicked()
 {
     int currentlySelectedScientistIndex = ui->table_people->currentIndex().row();
@@ -205,7 +213,6 @@ void MainWindow::on_button_remove_computer_clicked()
     }
     else
     {
-
         // display some error
     }
 }
